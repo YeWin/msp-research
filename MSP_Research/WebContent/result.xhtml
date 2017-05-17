@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+
+<h:head>
+	<title>JSF Tutorial!</title>
+	<meta charset="utf-8" />
+</h:head>
+
+<h:body>
+	<br />
+
+	<div style="width: 500px; height: 600px;">
+		<h:outputText id="outformat" value="#{EditorController.content}"
+			escape="false" style="width:900px;" />
+	</div>
+
+	<div id="disqus_thread"></div>
+	<script>
+		//var disqus_developer = 1;
+		/**
+		 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+		 */
+
+		var disqus_config = function() {
+			this.page.url = 'http://localhost/' + '#{EditorController.color}'; // Replace PAGE_URL with your page's canonical URL variable
+			this.page.identifier = 'result'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+			//this.page.developer = 1;
+		};
+
+		(function() { // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+			var d = document, s = d.createElement('script');
+
+			s.src = 'http://YeWin.disqus.com/embed.js'; // IMPORTANT: Replace EXAMPLE with your forum shortname!
+
+			s.setAttribute('data-timestamp', +new Date());
+			(d.head || d.body).appendChild(s);
+		})();
+	</script>
+	<noscript>
+		Please enable JavaScript to view the <a
+			href="https://disqus.com/?ref_noscript" rel="nofollow">comments
+			powered by Disqus.</a>
+	</noscript>
+
+
+</h:body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>JSF Tutorial!</title>
+	<meta charset="utf-8" />
+        <title>A Simple Page with CKEditor</title>
+        <!-- Make sure the path to CKEditor is correct. -->
+        
+	<script src="${facesContext.externalContext.requestContextPath}/ckeditor/ckeditor.js"></script>
+</head>
+
+<body>
+        Hello World!
+
+	<br /> <br />
+
+	<form>				
+			<textarea name="editor1" id="editor1" rows="10" cols="80">
+                This is my textarea to be replaced with CKEditor.
+            </textarea>
+			<!-- <script>
+			// Framed editor.
+			CKEDITOR.replace( 'editor1', {
+				extraPlugins: 'sourcedialog',
+				removePlugins: 'sourcearea'
+			}).config.allowedContent = true;
+            </script> -->
+            
+            <script>
+			// Framed editor.
+			/* CKEDITOR.replace( 'editor1', {
+			    filebrowserBrowseUrl: '/browser/browse.php',
+			    filebrowserUploadUrl: '/uploader/upload.php'
+			}); */
+			CKEDITOR.replace( 'editor1');
+			
+            </script>
+			
+			<br /> <br />
+            
+        </form>
+</body>
+</html>

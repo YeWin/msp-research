@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+
+<h:head>
+	<title>JSF Tutorial!</title>
+	<meta charset="utf-8" />
+
+</h:head>
+
+<h:body>
+	<br />
+	<h:form>
+
+		<script src="https://gist.github.com/YeWin/f906ab9eb22a1af06a8c4549cafc9a33.js"></script>
+
+		<p:growl id="growl" showDetail="true" />
+
+		<pe:ckEditor id="editor" value="#{EditorController.content}"
+			advancedContentFilter="false" width="900px"
+			customConfig="#{request.contextPath}/resources/js/ckeditor.js"
+			interfaceColor="#33fc14">
+		</pe:ckEditor>
+
+		<p:commandButton action="#{EditorController.resultPage}"
+			update="editor" value="Submit"
+			style="margin-top:10px;" />
+
+	</h:form>
+</h:body>
+</html>
