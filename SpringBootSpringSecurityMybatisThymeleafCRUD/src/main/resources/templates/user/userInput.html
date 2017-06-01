@@ -33,7 +33,9 @@
 
 						<textarea th:field="*{content}" id="editor" rows="10" cols="80"></textarea>
 						<script>
-							CKEDITOR.replace('editor');
+							CKEDITOR.replace('editor', {
+								removePlugins : 'sourcearea'								
+							});
 						</script>
 					</div>
 

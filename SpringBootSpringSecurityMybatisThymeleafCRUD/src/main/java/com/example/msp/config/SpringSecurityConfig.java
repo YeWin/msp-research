@@ -12,10 +12,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private AccessDeniedHandler accessDeniedHandler;
-
-    // roles admin allow to access /admin/**
-    // roles user allow to access /user/**
-    // custom 403 access denied handler
+    
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
@@ -24,6 +21,10 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 					.antMatchers("/", "/guest").permitAll()					
 					.antMatchers("/user/**").hasAnyRole("ADMIN")
 					.anyRequest().authenticated()
+                .and()
+                .headers().defaultsDisabled()
+                .xssProtection().xssProtectionEnabled(false)
+                .and()
                 .and()
                 .formLogin()
 					.loginPage("/login")
@@ -34,8 +35,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 					.and()
                 .exceptionHandling().accessDeniedHandler(accessDeniedHandler);
     }
-
-    // create two users, admin and user
+    
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 
