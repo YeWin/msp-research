@@ -1,0 +1,20 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<div th:fragment="header-css">
+	<!-- this is header-css -->
+	<link rel="stylesheet" type="text/css"
+		href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+</div>
+</head>
+<body>
+
+	<div th:fragment="message">
+		<!-- Bean Validation Messages -->
+		<div th:if="${#fields.hasAnyErrors()}" id="validatorError"
+			class="alert alert-danger">
+			<p th:each="err : ${#fields.allErrors()}" th:text="${err}">...</p>
+		</div>
+	</div>
+
+</body>
+</html>

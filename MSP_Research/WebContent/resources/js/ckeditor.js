@@ -6,5 +6,5 @@ CKEDITOR.editorConfig = function(config) {
 	 config.filebrowserImageUploadUrl = contextPath+'/ckeditor/uploadimage';
 	 alert("config.allowedContent: " + config.allowedContent);*/
 	
-	config.extraPlugins = 'image2,widget,widgetselection,clipboard,lineutils,codesnippet';
+	config.extraPlugins = 'image2,widget,widgetselection,clipboard,lineutils,embed,embedbase,notificationaggregator,notification';
 };

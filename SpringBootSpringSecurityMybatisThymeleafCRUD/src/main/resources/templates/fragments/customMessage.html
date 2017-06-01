@@ -1,0 +1,45 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<div th:fragment="header-css">
+	<!-- this is header-css -->
+	<link rel="stylesheet" type="text/css"
+		href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+</div>
+</head>
+<body>
+
+	<div th:fragment="message">
+		<!-- Custom Validation Messages -->
+		<div th:if="${resultMessages}">
+			
+			<div th:if="${not #lists.isEmpty(resultMessages.errorList)}"
+				id="alertMessage" class="alert alert-danger">
+				<div th:each="err, iterStat : ${resultMessages.errorList}">
+					<span id="errMessage" th:id="errMessage + ${iterStat.count}"
+						th:text="${err.text}">Alert</span>
+				</div>
+			</div>
+
+			
+			<div th:if="${not #lists.isEmpty(resultMessages.infoList)}"
+				id="infoMessage" class="alert alert-info">
+				<div th:each="info, iterStat : ${resultMessages.infoList}">
+					<span th:id="infoMessage + ${iterStat.count}"
+						th:text="${info.text}">Info</span>
+				</div>
+			</div>
+
+			
+			<div th:if="${not #lists.isEmpty(resultMessages.completeList)}"
+				id="completeMessage" class="alert alert-success">
+				<div th:each="complete, iterStat : ${resultMessages.completeList}">
+					<span th:id="completeMessage + ${iterStat.count}"
+						th:text="${complete.text}">Success</span>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</body>
+</html>
