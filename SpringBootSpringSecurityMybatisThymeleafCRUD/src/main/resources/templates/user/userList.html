@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<div th:replace="fragments/header :: header-css" />
+
+<script src="../../ckeditor/ckeditor.js"></script>
+
+</head>
+<body>
+
+	<div th:replace="fragments/header :: header"></div>
+
+	<div class="container">
+		<div class="row" style="margin-bottom: 50px;">
+			<div class="col-md-offset-2 col-md-8">
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<h3 class="panel-title">All Users</h3>
+					</div>
+					<div class="panel-body">
+						<table class="table table-bordered">
+							<thead>
+								<tr class="btn-success">
+									<th>Name</th>
+									<th>Content</th>
+									<th>Email</th>
+									<th>Age</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:if="${#lists.isEmpty(userList)}" class="btn-warning">
+									<td colspan="4" align="center">No Users Registered
+										Yet!!!</td>
+								</tr>
+								<tr th:each="user : ${userList}">
+									<td th:text="${user.userName}"></td>
+									<td th:text="${user.content}"></td>
+									<td th:text="${user.email}"></td>
+									<td th:text="${user.age}"></td>
+									<!-- <td align="center"><a
+										th:href="@{/employee/edit/{id}(id=${emp.id})}"><span
+											class="glyphicon glyphicon-edit"></span></a> &nbsp; &nbsp; <a
+										th:href="@{/employee/delete/{id}(id=${emp.id})}"><span
+											class="glyphicon glyphicon-trash"></span></a></td> -->
+								</tr>
+
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>

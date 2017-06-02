@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.example.msp.TestAbstract;
 import com.example.msp.domain.user.dto.UsersDto;
 
-public class UsersInsertServiceTest extends TestAbstract {
+public class UserInsertServiceTest extends TestAbstract {
 
 	@Autowired
 	private UserInsertService userInsertService;
