@@ -4,20 +4,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.msp.database.entity.Users;
-import com.example.msp.domain.user.dao.UserInsertDao;
+import com.example.msp.domain.user.dao.UserUpdateConfirmDao;
 import com.example.msp.domain.user.dto.UsersDto;
 
 @Service
-public class UserInsertServiceImpl implements UserInsertService {
+public class UserUpdateConfirmServiceImpl implements UserUpdateConfirmService {
 	
 	@Autowired
-	UserInsertDao userInsertDao;
+	UserUpdateConfirmDao userUpdateDao;
 
 	@Override
-	public boolean insertUser(UsersDto userDto) throws Exception {
+	public boolean updateUser(UsersDto userDto) throws Exception {
 
-		userInsertDao.insertUser(setDtoModelToEntityModel(userDto));
-		
+		userUpdateDao.updateUser(setDtoModelToEntityModel(userDto));
+
 		return true;
 	}
 	

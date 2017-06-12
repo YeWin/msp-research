@@ -1,8 +1,11 @@
 package com.example.msp.domain.user.service;
 
 import static org.junit.Assert.assertThat;
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.Matchers.anyOf;
 import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.not;
 
 import java.util.List;
 
@@ -20,7 +23,7 @@ public class UserListServiceTest extends TestAbstract {
 	@Test
 	public void shouldReturnUsersList() throws Exception {		
 		List<UsersListDto> usersListDto = userListService.getUsersList();
-		assertThat(usersListDto, notNullValue());
-		assertThat(usersListDto.size(), greaterThan(-1));
+		assertThat(usersListDto, notNullValue());		
+		assertThat(usersListDto.size(), anyOf(greaterThan(-1), is(not(0))));
 	}
 }

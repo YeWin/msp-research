@@ -12,23 +12,17 @@ import com.example.msp.TestAbstract;
 import com.example.msp.database.entity.Users;
 import com.example.msp.database.mapper.UsersMapper;
 
-public class UserInsertMapperTest extends TestAbstract {
+public class UserUpdateMapperTest extends TestAbstract {
 
 	@Autowired
 	private UsersMapper userMapper;
 
 	@Test
-	public void shouldInsert() {
+	public void shouldUpdate() {
 		Users user = newUsers();
-		int count = this.userMapper.insertSelective(user);
+		user.setId(1);
+		int count = this.userMapper.updateByPrimaryKeySelective(user);
 		assertThat(count, is(1));
 		assertThat(user.getId(), notNullValue());
-	}
-
-	@Test(expected = Exception.class)
-	public void databaseError() {
-		Users user = new Users();
-		user.setId(1);
-		this.userMapper.insertSelective(user);
 	}
 }

@@ -37,11 +37,11 @@
 									<td th:text="${user.content}"></td>
 									<td th:text="${user.email}"></td>
 									<td th:text="${user.age}"></td>
-									<!-- <td align="center"><a
-										th:href="@{/employee/edit/{id}(id=${emp.id})}"><span
-											class="glyphicon glyphicon-edit"></span></a> &nbsp; &nbsp; <a
-										th:href="@{/employee/delete/{id}(id=${emp.id})}"><span
-											class="glyphicon glyphicon-trash"></span></a></td> -->
+									<td align="center"><a
+										th:href="@{/user/delete/{id}(id=${user.id})}"><span
+											class="glyphicon glyphicon-trash"></span></a> &nbsp; &nbsp; <a
+										th:href="@{/user/update(id=${user.id})}"><span
+											class="glyphicon glyphicon-edit"></span></a></td>
 								</tr>
 
 							</tbody>

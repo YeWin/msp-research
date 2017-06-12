@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<div th:replace="fragments/header :: header-css" />
+
+<script src="../../ckeditor/ckeditor.js"></script>
+
+</head>
+<body>
+
+	<div th:replace="fragments/header :: header"></div>
+
+	<div class="container">
+
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" />
+		</form>
+
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<h3 class="panel-title">Upate User</h3>
+			</div>
+
+			<div class="panel-body">
+				<form th:object="${usersDto}" th:action="@{/user/update/confirm}" action="#"
+					method="post">
+
+					<div th:replace="fragments/validatorMessage :: message"></div>
+					
+					<input type="hidden" th:field="*{id}"/>
+
+					<div class="form-group">
+						<!-- <input type="text" th:field="*{content}" class="form-control"
+							placeholder="Content" /> -->
+
+						<textarea th:field="*{content}" id="editor" rows="10" cols="80"></textarea>
+						<script>
+							CKEDITOR.replace('editor', {
+								removePlugins : 'sourcearea'								
+							});
+						</script>
+					</div>
+
+					<div class="form-group">
+						<input type="text" th:field="*{userName}" class="form-control"
+							placeholder="User Name" />
+					</div>
+
+					<div class="form-group">
+						<input type="text" th:field="*{email}" class="form-control"
+							placeholder="Email" />
+					</div>
+
+					<div class="form-group">
+						<input type="text" th:field="*{gender}" class="form-control"
+							placeholder="Gender" />
+					</div>
+
+					<div class="form-group">
+						<input type="text" th:field="*{age}" class="form-control"
+							placeholder="Age" />
+					</div>
+
+					<input type="submit" class="btn btn-danger pull-right" value="Save" />
+				</form>
+			</div>
+
+		</div>
+
+	</div>
+	
+	<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>

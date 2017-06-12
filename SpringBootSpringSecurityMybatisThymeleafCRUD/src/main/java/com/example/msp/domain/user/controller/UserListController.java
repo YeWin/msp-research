@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.msp.domain.user.dto.UsersListDto;
 import com.example.msp.domain.user.service.UserListService;
+import com.example.msp.message.MessageHelper;
 
 @Controller
 @RequestScope
@@ -18,15 +19,18 @@ public class UserListController {
 
 	@Autowired
 	private UserListService userListService;
+	
+	@Autowired
+	private MessageHelper messageHelper;
 
 	@GetMapping(value = "/user/list")
-	public @ResponseBody ModelAndView userInsert() throws Exception {
+	public @ResponseBody ModelAndView userList() throws Exception {
 
 		ModelAndView mav = new ModelAndView("/user/userList");
 
 		List<UsersListDto> userList = userListService.getUsersList();
 		
-		mav.addObject("userList", userList);		 
+		mav.addObject("userList", userList);		
 
 		return mav;
 	}

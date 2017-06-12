@@ -88,6 +88,16 @@ public interface UsersMapper {
      * This method corresponds to the database table users.
     */
     @Select("select * from users order by 1")
+    @Results({
+        @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
+        @Result(column="content", property="content", jdbcType=JdbcType.VARCHAR),
+        @Result(column="user_name", property="userName", jdbcType=JdbcType.VARCHAR),
+        @Result(column="email", property="email", jdbcType=JdbcType.VARCHAR),
+        @Result(column="gender", property="gender", jdbcType=JdbcType.VARCHAR),
+        @Result(column="age", property="age", jdbcType=JdbcType.INTEGER),
+        @Result(column="created_date", property="createdDate", jdbcType=JdbcType.DATE),
+        @Result(column="updated_date", property="updatedDate", jdbcType=JdbcType.DATE)
+    })
     List<UsersListDto> selectAll();
 
     /**
