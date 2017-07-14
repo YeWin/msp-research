@@ -2,57 +2,37 @@
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 
 <generatorConfiguration>
-<classPathEntry
-		location="C://postgresql-9.4.1212.jre7.jar" />
-		
+	<classPathEntry location="C://postgresql-9.4.1212.jre7.jar" />
+
 	<context id="service_db" defaultModelType="flat">
 
-		<!-- Javaソースコードファイルエンコーディング -->
+		<!-- Java source code file encoding -->
 		<property name="javaFileEncoding" value="UTF-8" />
 
-		<!-- MBG-Plugin:RowBounds(LIMIT,OFFSET)有効化 -->
+		<!-- MBG-Plugin:RowBounds(LIMIT,OFFSET)Activation -->
 		<plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />
-		<!-- MBG-Plugin:Dtoクラスの文字列表現を実装 -->
+		<!-- MBG-Plugin:Dto Implement string representation class -->
 		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
-		<!-- MBG-Plugin:Serializedインタフェース実装 -->
+		<!-- MBG-Plugin:Serialized Interface implementation -->
 		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
-		<!-- MBG-Plugin:モデルクラス名変更 -->
-		<!-- <plugin type="plugin.ModelClassNamePlugin" /> -->
-		<!-- MBG-Plugin:Mapperクラスに@Mapperアノテーションを付与する -->
-		<!-- <plugin type="plugin.MapperAnnotatePlugin" /> -->
 
-		
-
-		<!-- 接続先DB -->
-		<jdbcConnection
-			driverClass="org.postgresql.Driver"
-			connectionURL="jdbc:postgresql://localhost:5432/mkyong"
-			userId="postgres"
+		<!-- Access DB -->
+		<jdbcConnection driverClass="org.postgresql.Driver"
+			connectionURL="jdbc:postgresql://localhost:5432/mkyong" userId="postgres"
 			password="admin" />
 
-		<!--
-			テーブル毎にEntityクラスを生成
-			targetPackage: Javaパッケージ構成
-			targetProject: 出力先フォルダパス
-		-->
-		<javaModelGenerator
-			targetPackage="com.example.msp.database.entity"
+		<!-- Generate entity class for each table targetPackage: Java package configuration targetProject: Destination folder path -->
+		<javaModelGenerator targetPackage="com.example.msp.database.entity"
 			targetProject=".\src\main\java\" />
 
-		<!--
-			テーブル毎にMapperクラス生成
-			targetPackage: Javaパッケージ構成
-			targetProject: 出力先フォルダパス
-			type: ANNOTATEDMAPPER(アノテーションにSQLを生成)
-		-->
-		<javaClientGenerator
-			targetPackage="com.example.msp.database.mapper"
-			targetProject=".\src\main\java\"
-			type="ANNOTATEDMAPPER" />
+		<!-- Mapper class generation for each table targetPackage: Java package configuration targetProject: Destination folder path 
+			type: ANNOTATEDMAPPER(Generate SQL in annotation) -->
+		<javaClientGenerator targetPackage="com.example.msp.database.mapper"
+			targetProject=".\src\main\java\" type="ANNOTATEDMAPPER" />
 
-		<!-- 自動生成対象テーブル -->
+		<!-- Automatically generated target table -->
 		<table tableName="users" delimitIdentifiers="true"
-				delimitAllColumns="true" />
+			delimitAllColumns="true" />
 	</context>
 
 </generatorConfiguration>
