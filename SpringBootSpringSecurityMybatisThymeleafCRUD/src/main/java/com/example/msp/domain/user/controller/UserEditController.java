@@ -70,7 +70,7 @@ public class UserEditController {
 
 		userDeleteService.userDelete(userId);
 
-		String redirectPage = "redirect:/user/list/" + userId;
+		String redirectPage = "redirect:/user/list/";
 
 		return redirectPage;
 	}
